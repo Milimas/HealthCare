@@ -22,12 +22,19 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $facker = \Faker\Factory::create();
         return [
-            'name' => $this->faker->name,
+            'first_name' => $this->faker->name,
+            'last_name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => 'password', // password
             'remember_token' => Str::random(10),
+            'address' => $this->faker->address,
+            'birth_date' => $this->faker->dateTime(),
+            'mobile_number' => $facker->phoneNumber,
+            'national_id' => $facker->numerify('###-##-####'),
+            'job_id' => 1,
         ];
     }
 }
