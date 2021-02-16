@@ -24,11 +24,11 @@ class UserFactory extends Factory
     {
         $facker = \Faker\Factory::create();
         return [
-            'first_name' => $this->faker->name,
-            'last_name' => $this->faker->name,
+            'first_name' => $this->faker->firstName,
+            'last_name' => $this->faker->lastName,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
-            'password' => 'password', // password
+            'password' => '$2y$10$Jy/lfSJBpv0G96XmXB01VO4.Zy9wIp3oJTy.nWRgzeRwrv1QYhm2q', // password
             'remember_token' => Str::random(10),
             'address' => $this->faker->address,
             'birth_date' => $this->faker->dateTime(),
