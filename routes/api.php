@@ -2,11 +2,12 @@
 
 use App\Http\Controllers\API\AuthController as APIAuthController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DoctorSessionController;
 use App\Http\Controllers\JobsController;
+use App\Http\Controllers\NurseSessionController;
 use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
-use App\Models\Patients;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -44,4 +45,16 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('sessions', [SessionController::class, 'store']);
     Route::put('sessions/{id}', [SessionController::class, 'update']);
     Route::delete('sessions/{id}', [SessionController::class, 'destroy']);
+
+    Route::get('doctors', [DoctorSessionController::class, 'index']);
+    Route::get('doctors/{id}', [DoctorSessionController::class, 'show']);
+    Route::post('doctors', [DoctorSessionController::class, 'store']);
+    Route::put('doctors/{id}', [DoctorSessionController::class, 'update']);
+    Route::delete('doctors/{id}', [DoctorSessionController::class, 'destroy']);
+
+    Route::get('nurses', [NurseSessionController::class, 'index']);
+    Route::get('nurses/{id}', [NurseSessionController::class, 'show']);
+    Route::post('nurses', [NurseSessionController::class, 'store']);
+    Route::put('nurses/{id}', [NurseSessionController::class, 'update']);
+    Route::delete('nurses/{id}', [NurseSessionController::class, 'destroy']);
 });
