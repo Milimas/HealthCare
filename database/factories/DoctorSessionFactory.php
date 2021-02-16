@@ -25,6 +25,6 @@ class DoctorSessionFactory extends Factory
         return [
             'doctor_id' => $facker->numberBetween(1, 5),
             'session_id' => $facker->numberBetween(6, 10),
-        ];;
+        ];
     }
 }
