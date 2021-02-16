@@ -4,6 +4,7 @@ use App\Http\Controllers\API\AuthController as APIAuthController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\PatientsController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use App\Models\Patients;
 use Illuminate\Http\Request;
@@ -37,4 +38,10 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('patients', [PatientsController::class, 'store']);
     Route::put('patients/{id}', [PatientsController::class, 'update']);
     Route::delete('patients/{id}', [PatientsController::class, 'destroy']);
+
+    Route::get('sessions', [SessionController::class, 'index']);
+    Route::get('sessions/{id}', [SessionController::class, 'show']);
+    Route::post('sessions', [SessionController::class, 'store']);
+    Route::put('sessions/{id}', [SessionController::class, 'update']);
+    Route::delete('sessions/{id}', [SessionController::class, 'destroy']);
 });
