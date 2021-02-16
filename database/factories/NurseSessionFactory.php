@@ -21,10 +21,11 @@ class NurseSessionFactory extends Factory
      */
     public function definition()
     {
-        $facker = \Faker\Factory::create();
+        static $nurse = 1;
+        static $session = 1;
         return [
-            'nurse_id' => $facker->numberBetween(1, 5),
-            'session_id' => $facker->numberBetween(6, 10),
+            'nurse_id' => $nurse++,
+            'session_id' => $session++,
         ];
     }
 }
