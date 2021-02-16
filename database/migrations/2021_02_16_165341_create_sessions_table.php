@@ -20,7 +20,7 @@ class CreateSessionsTable extends Migration
             $table->string('title')->nullable();
             $table->text('report')->nullable();
             $table->timestamps();
-            $table->foreign('patient_id')->references('id')->on('patients');
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
         });
     }
 

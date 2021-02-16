@@ -24,7 +24,7 @@ class CreatePatientsTable extends Migration
             $table->string('second_mobile_number');                                                 // * Relative or Friend's Mobile Number
             $table->unsignedBigInteger('doctor');                                                      // * User ID in Charge
             $table->timestamps();
-            $table->foreign('doctor')->references('id')->on('users');
+            $table->foreign('doctor')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

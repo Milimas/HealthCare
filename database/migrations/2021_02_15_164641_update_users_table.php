@@ -28,7 +28,7 @@ class UpdateUsersTable extends Migration
             $table->string('national_id');                                                          // * Social Security Number
             $table->unsignedBigInteger('job_id');                                                   // * Position
             $table->timestamps();
-            $table->foreign('job_id')->references('id')->on('jobs');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
         });
     }
 
